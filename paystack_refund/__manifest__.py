@@ -8,6 +8,10 @@
     'company': 'Paystack',
     'website': 'https://paystack.com',
     'depends': ['base','account','payment','paystack_base'],
+     'images': [
+        'static/src/img/logo.png',
+        'static/src/img/Paystack_Logo.png', 'static/description/icon.png', 'static/images/banner.png',
+    ],
     'data': [
         'security/ir.model.access.csv',
         'views/payment_transaction_view.xml',

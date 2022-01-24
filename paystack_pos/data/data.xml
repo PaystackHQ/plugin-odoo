@@ -6,7 +6,7 @@
             <field name="email">paystackcustomer@gmail.com</field>
             <!-- <field name="company_type" ref="base.main_company"/> -->
             <field name="company_type">person</field>
-            <field name="image_1920" type="base64" file="paystack_pos/static/src/img/Paystack_Logo.png"/>
+            <field name="image_1920" type="base64" file="paystack_pos/static/src/img/logo.png"/>
                         
         </record>
 

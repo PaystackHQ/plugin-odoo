@@ -8,6 +8,10 @@
     'company': 'Paystack',
     'website': 'https://paystack.com',
     'depends': ['base','payment','paystack_base', 'point_of_sale'],
+      'images': [
+        'static/src/img/logo.png',
+        'static/src/img/Paystack_Logo.png', 'static/description/icon.png', 'static/images/banner.png',
+    ],
     'data': [
         'security/ir.model.access.csv',
         'data/data.xml',

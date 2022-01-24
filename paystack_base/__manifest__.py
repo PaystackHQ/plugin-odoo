@@ -13,6 +13,10 @@
         'views/templates.xml',
         'data/data.xml'
     ],
+    'images': [
+        'static/src/img/logo.png',
+        'static/src/img/Paystack_Logo.png', 'static/description/icon.png', 'static/images/banner.png',
+    ],
     'installable': True,
     'auto_install': True,
     'application': True,
