@@ -1,0 +1,79 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.paystack_qrcode_popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 40%;
+  height: 70%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+
+.paystack_qrcode_popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.paystack_qrcode_popup .close:hover {
+  color: #06D85F;
+}
+.paystack_qrcode_popup .content {
+  
+  overflow: auto;
+  text-align:center;
+}
+
+@media screen and (max-width: 700px){
+  .box{
+    width: 40%;
+  }
+  .paystack_qrcode_popup{
+    width: 70%;
+    height: 60%;
+  }
+}
+
+.paystack_qrcode_close
+{
+  display: inline-block !important;
+  cursor: pointer !important;
+  padding: 10px 10px !important;
+  font-size: 13px !important;
+  border: 1px solid rgb(180, 175, 175) !important;
+  background: white !important;
+  color:black !important;
+  font-weight: bold !important;
+}
+
+.paystack_qrcode_popup *::-webkit-scrollbar {
+  width: 10px !important;
+  height: 10px !important;
+  background-color: rgb(167, 161, 161) !important;
+}
+
+.paystack_qrcode_popup *::-webkit-scrollbar-thumb {
+  background: rgb(124, 121, 121) !important;
+}
+

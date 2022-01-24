@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="PaymentScreen" t-inherit="point_of_sale.PaymentScreen" t-inherit-mode="extension" owl="1">
+        
+        <xpath expr="//div[@class='right-content']" position="after">
+
+            <div id="popup1" class="overlay">
+                <div class="paystack_qrcode_popup">
+
+                    <h2 class="product_popup_title">Paystack Offline Reference</h2>
+                    <a class="close paystack_qrcode_close" href="#">&#215;</a>
+                    <div class="content" id="paystack_qrcode_popup_id">
+
+                        <h3>QR CODE GENERATED HERE </h3>
+
+                        <h4>Before that you must send payment request to the customer.</h4>
+                    
+                    </div>
+                                       
+                </div>
+            </div>
+
+        </xpath>
+          
+    </t>
+
+    <t t-name="PaymentScreenPaymentLines" t-inherit="point_of_sale.PaymentScreenPaymentLines" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('paymentlines')]//t['t-if=line.selected']//div[hasclass('payment-name')]" position="after">
+            <t t-if="line.payment_method.use_payment_terminal=='paystack'">
+                <div>
+                    <a href="#popup1" id="pos_paystack_qrcode_click" name="pos_paystack_qrcode_click" onclick="pos_paystack_qrcode_click(this);">
+                        <button class="product-specification-button1" >
+                            <i class="fa fa-qrcode" aria-hidden="true" style="font-size: 20px;color: black;"></i>
+                        </button>
+                    </a>
+                                       
+                </div>
+            </t>
+        </xpath>
+
+
+    </t>
+
+</templates>

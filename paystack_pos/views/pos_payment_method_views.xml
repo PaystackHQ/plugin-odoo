@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="pos_payment_method_view_form_inherit_pos_paystack" model="ir.ui.view">
+        <field name="name">pos.payment.method.form.inherit.paystack</field>
+        <field name="model">pos.payment.method</field>
+        <field name="inherit_id" ref="point_of_sale.pos_payment_method_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='use_payment_terminal']" position="after">
+                <!-- Paystack -->
+                <field name="paystack_merchant_key" attrs="{'invisible': [('use_payment_terminal', '!=', 'paystack')], 'required': [('use_payment_terminal', '=', 'paystack')]}" password="True"/>
+
+                <div class="o_setting_right_pane" attrs="{'invisible': [('use_payment_terminal', '!=', 'paystack')]}">
+                    <span class="o_form_label">Paystack Terminal</span>
+
+                    <div class="text-muted">
+                        paystack terminal id available
+                    </div>
+                    
+                    <div class="content-group mt16">
+                        <button name="get_paystack_terminal_ids" type="object" string="Update Terminals" class="btn btn-primary"/>
+                    </div>
+                    <div>
+                        <button name="%(paystack_pos.action_paystack_terminal_detail)d" icon="fa-arrow-right" type="action" string="Paystack Terminals" class="btn-link"/>
+                    </div>
+                </div>
+             
+            </xpath>
+
+            <xpath expr="//field[@name='split_transactions']" position="after">
+                <field name="pos_allowed_currencies" widget="many2many_tags" attrs="{'invisible': [('use_payment_terminal', '!=', 'paystack')]}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

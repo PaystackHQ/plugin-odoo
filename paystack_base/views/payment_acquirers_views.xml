@@ -1,0 +1,30 @@
+<odoo>
+  <data>
+
+    <record id="paystack_base.payment_acquirer_form_paystack" model="ir.ui.view">
+        <field name="name">payment.acquirer.inherit</field>
+        <field name="model">payment.acquirer</field>
+        <field name="inherit_id" ref="payment.acquirer_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='acquirer']" position='after'>
+                <group attrs="{'invisible': [('provider', '!=', 'paystack')]}" string="Paystack Credential Setup">
+                    <field name="paystack_transaction_initialize"/>
+                    <field name="paystack_transaction_verify"/>
+                    <field name="paystack_transaction_refund"/>
+                    <field name="paystack_merchant_key" password="True"/>
+                    <field name="ecom_allowed_currencies" widget="many2many_tags"/>
+                </group>
+                <h2 attrs="{'invisible': [('provider', '!=', 'paystack')]}">Test Connections</h2>
+                <group attrs="{'invisible': [('provider', '!=', 'paystack')]}">
+                    <button name="test_paystack_initialization" type="object" string="Test Payment Connection" style="background-color:darkgreen;color:white;font-weight:bold;"/>
+                </group>
+                <group attrs="{'invisible': [('provider', '!=', 'paystack')]}">
+                  <button name="test_paystack_refund" type="object" string="Test Refund Connection" style="background-color:grey;color:white;font-weight:bold;" />
+                </group>
+            </xpath>
+
+        </field>
+    </record>
+
+  </data>
+</odoo>

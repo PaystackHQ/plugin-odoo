@@ -1,0 +1,175 @@
+<odoo>
+  <data>
+    
+
+    <record id="paystack_pos_order_detail_view_tree" model="ir.ui.view">
+        <field name="name">pos.order.paystack.view.tree</field>
+        <field name="model">pos.order.paystack</field>
+        <field name="arch" type="xml">
+            <tree string="Paystack Payment Details" create="0" edit="0" delete="0">
+              
+              <field name="pos_receipt_number" />
+              <field name="pos_order" />
+              <field name="partner_id" />
+              <field name="email" />
+              <field name="customer_id" />
+        
+              <field name="customer_code" />
+              <field name="amount_untaxed_total" />
+              <field name="amount_tax_total" />
+              <field name="amount_total" />
+                  
+            </tree>
+
+        </field>
+    </record>
+
+    <record id="paystack_pos_order_detail_view_form" model="ir.ui.view">
+        <field name="name">pos.order.paystack.view.form</field>
+        <field name="model">pos.order.paystack</field>
+        <field name="arch" type="xml">
+            <form string="Paystack Payment Details" create="0" edit="0" delete="0">
+                <sheet>
+                  <group>
+                    <group>
+                      <field name="pos_receipt_number" />
+                      <field name="pos_order" />
+                      <field name="partner_id" />
+                      <field name="email" />
+                      <field name="customer_id" />
+                    </group>
+                    
+                    <group>
+                    
+                      <field name="customer_code" />
+                      <field name="amount_untaxed_total" />
+                      <field name="amount_tax_total" />
+                      <field name="amount_total" />
+                    </group>
+                  </group>
+
+                  <notebook>
+                    <page string="Payment Details">
+                      <field name="paystack_payment_ids">
+                      
+                        <tree>
+                          <field name="paystack_payment_id"/>
+                          <field name="paystack_customer_id"/>
+                          <field name="request_code"/>
+                          <field name="offline_reference"/>
+                          <field name="invoice_number"/>
+                          <field name="description"/>
+                          <field name="transaction_reference" invisible="0"/>
+                          <field name="paystack_terminal_id"/>
+                          <field name="paystack_terminal_response_id"/>
+                          <field name="paystack_terminal_response"/>
+                          <field name="payment_status"/>
+                        </tree>
+
+                        <form>
+                          <sheet>
+                            <group>
+                              <group>
+                                
+                                <field name="paystack_payment_id"/>
+                                <field name="paystack_customer_id"/>
+                                <field name="request_code"/>
+                                <field name="offline_reference"/>
+                                <field name="transaction_reference" invisible="0"/>
+                                <field name="response_message"/>
+
+                                <field name="invoice_number"/>
+                                <field name="description"/>
+
+                                <field name="paystack_terminal_id"/>
+                                <field name="paystack_terminal_response_id"/>
+                                <field name="paystack_terminal_response"/>
+
+                                <field name="payment_status"/>
+                                <field name="paystack_paid_at"/>
+                                <field name="event_triggered"/>
+                                
+                              </group>
+
+                              <group string="Other charges">
+                                
+                                <field name="fees" invisible="1"/>
+                                <field name="flat_rate"/>
+                                <field name="charge_percentage"/>
+                                <field name="international_charge_percentage"/>
+                                <field name="flat_threshhold"/>
+                                <field name="transfer_charge"/>
+                                
+                              </group>
+
+                              <group string="Authorization" invisible="1">
+                             
+                                <field name="ip_address"/>
+                                <field name="authorization_code"/>
+                                <field name="paystack_channel"/>
+                                <field name="paystack_bin"/>
+                                <field name="paystack_last4"/>
+                                <field name="paystack_card_type"/>
+                                <field name="paystack_bank"/>
+                                <field name="paystack_country_code"/>
+                                <field name="paystack_signature"/>
+                                <field name="paystack_account_name"/>
+                                
+                              </group>
+                            </group>
+
+                            <group>
+
+                              <group string="Other charges" invisible="1">
+                                
+                                <field name="fees" invisible="1"/>
+                                <field name="flat_rate"/>
+                                <field name="charge_percentage"/>
+                                <field name="international_charge_percentage"/>
+                                <field name="flat_threshhold"/>
+                                <field name="transfer_charge"/>
+                                
+                              </group>
+                              
+                              <group>
+                                <field name="payment_qr_code" widget='image' />
+                              </group>
+                            </group>
+                          </sheet>
+                        </form>
+
+                      </field>
+                    </page>
+                  </notebook>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_paystack_pos_order_detail" model="ir.actions.act_window">
+        <field name="name">Paystack Order Details</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pos.order.paystack</field>
+        <field name="view_mode">tree,form,pivot,graph</field>
+        <field name="view_id" eval="False"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Paystack Order with payment details tracking
+            </p><p>
+                Terminal Payment from paystack are captured based on the pos orders and status of the payments along with paystack gateway responses.
+            </p>
+        </field>
+    </record>
+
+
+    <menuitem id="menu_paystack_pos_order_detail"
+        name="Paystack Order Details"
+        parent="point_of_sale.menu_point_config_product"
+        action="action_paystack_pos_order_detail"
+        sequence="5"
+        groups="point_of_sale.group_pos_manager,point_of_sale.group_pos_user"/>
+
+  </data>
+</odoo>

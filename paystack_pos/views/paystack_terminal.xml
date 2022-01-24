@@ -1,0 +1,72 @@
+<odoo>
+  <data>
+
+
+    <record id="paystack_terminal_view_tree" model="ir.ui.view">
+        <field name="name">paystack.terminal.view.tree</field>
+        <field name="model">paystack.terminal</field>
+        <field name="arch" type="xml">
+            <tree string="Paystack Terminal Details" create="0" delete="0">
+              
+              <field name="name" />
+              <field name="serial_number" />
+              <field name="device_name" />
+              <field name="status" />
+              
+                              
+            </tree>
+
+        </field>
+    </record>
+
+    <record id="paystack_terminal_view_form" model="ir.ui.view">
+        <field name="name">paystack.terminal.view.form</field>
+        <field name="model">paystack.terminal</field>
+        <field name="arch" type="xml">
+            <form string="Paystack Terminal Details" create="0" edit="0" delete="0">
+                <sheet>
+                  <group>
+                    <group>
+                      <field name="name" />
+                      <field name="serial_number" />
+                      
+                    
+                    </group>
+
+                    <group>
+                      <field name="device_name" />
+                      <field name="status" />
+                    </group>
+                 
+                  </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_paystack_terminal_detail" model="ir.actions.act_window">
+      <field name="name">Paystack Terminal Details</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">paystack.terminal</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_id" eval="False"/>
+      <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+              Paystack terminal details
+          </p>
+      </field>
+    </record>
+
+
+    <menuitem id="menu_paystack_terminal_detail"
+        name="Paystack Terminals"
+        parent="point_of_sale.menu_point_config_product"
+        action="action_paystack_terminal_detail"
+        sequence="6"
+        groups="point_of_sale.group_pos_manager,point_of_sale.group_pos_user"/>
+
+
+  </data>
+</odoo>

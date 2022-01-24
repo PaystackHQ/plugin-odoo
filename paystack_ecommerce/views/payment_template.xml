@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="website_sale_payment" inherit_id="website_sale.payment" name="Paystack Payment">
+		<xpath expr="//div[@id='payment_method']//h3" position="after">
+			<t t-if="paystack_currencies">
+				<input name="paystack_currencies" id='paystack_currencies' t-att-value="paystack_currencies" type="hidden"/>
+			</t>
+			<t t-if="order_currency">
+				<input name="order_currency" id='order_currency'  t-att-value="order_currency" type="hidden"/>
+			</t>
+			<t t-if="paystack_id">
+				<input name="paystack_id" id='paystack_id'  t-att-value="paystack_id" type="hidden"/>
+			</t>
+		</xpath>
+	</template>
+</odoo>

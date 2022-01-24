@@ -1,0 +1,15 @@
+<odoo>
+    <data noupdate="1">
+        <record id="payment_acquirer_paystack" model="payment.acquirer">
+            <field name="name">Paystack</field>
+            <field name="provider">paystack</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="image_128" type="base64" file="paystack_base/static/src/img/Paystack_Logo.png"/>
+            <field name="state">disabled</field>
+            <field name="description">Paystack Payment Gateway Integration for Odoo 14, Paystack, payment gateway,Payment Gateway Integration,Paystack payment, odoo 14, odoo payment gateway</field>
+            <field name="paystack_transaction_initialize">https://api.paystack.co/transaction/initialize</field>
+            <field name="paystack_merchant_key">demo</field>
+            <field name="view_template_id" ref="paystack_base.paystack_form"/>
+        </record>
+    </data>
+</odoo>

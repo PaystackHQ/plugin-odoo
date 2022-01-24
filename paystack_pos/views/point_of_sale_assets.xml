@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets" inherit_id="point_of_sale.assets">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/paystack_pos/static/src/js/payment_paystack.js"></script>
+            <script type="text/javascript" src="/paystack_pos/static/src/js/PaymentScreen.js"></script>
+            <script type="text/javascript" src="/paystack_pos/static/src/js/models.js"></script>
+            <script type="text/javascript" src="/paystack_pos/static/src/js/qrcode_popup.js"></script>
+
+            <link rel="stylesheet" href="/paystack_pos/static/src/css/style.css"/>
+        </xpath>
+    </template>
+</odoo>

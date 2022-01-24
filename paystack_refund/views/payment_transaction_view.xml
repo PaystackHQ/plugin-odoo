@@ -1,0 +1,68 @@
+<odoo>
+  <data>
+
+    <record id="paystack_refund.payment_transaction_form_paystack" model="ir.ui.view">
+        <field name="name">payment.transaction.inherit</field>
+        <field name="model">payment.transaction</field>
+        <field name="inherit_id" ref="payment.transaction_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[1]" position='after'>
+                <field name="paystack_refund" invisible="1"/>
+                <notebook attrs="{'invisible': [('paystack_refund', '=', False)]}">
+                  <page name="paystack_refund_page" string="Paystack Refund Details" >
+                    
+                      <field name="paystack_refund_ids" readonly="1">
+                        <tree>
+                          <field name="paystack_refund_status"/>
+                          <field name="paystack_refund_message"/>
+                          <field name="refund_details" invisible="1"/>
+                          <!-- <field name="dispute"/> -->
+                          <field name="refund_id"/>
+                          <field name="refund_amount"/>
+                          <field name="refund_fees"/>
+                          <field name="refunded_by"/>
+                          <!-- <field name="refunded_at"/> -->
+                          <field name="expected_at"/>
+                          <field name="created_at"/>
+                          <field name="updated_at"/>
+                          <field name="refund_customer_note"/>
+                          <field name="refund_merchant_note"/>
+                        </tree>
+
+                        <form>
+                          <sheet>
+                            <group>
+                              <group string="Refund status">
+                                <field name="paystack_refund_status"/>
+                                <field name="paystack_refund_message"/>
+                                <field name="refund_details" invisible="1"/>
+                                <!-- <field name="dispute"/> -->
+                                <field name="refund_id"/>
+                                <field name="refund_amount"/>
+                                <field name="refund_fees"/>
+                                
+                              </group>
+
+                              <group string="Other details">
+                                <field name="refunded_by"/>
+                                <!-- <field name="refunded_at"/> -->
+                                <field name="expected_at"/>
+                                <field name="created_at"/>
+                                <field name="updated_at"/>
+                                <field name="refund_customer_note"/>
+                                <field name="refund_merchant_note"/>
+                              </group>
+                            </group>
+
+                          </sheet>
+                        </form>
+                      </field>
+                    </page>
+                </notebook>
+            </xpath>
+
+        </field>
+    </record>
+
+  </data>
+</odoo>

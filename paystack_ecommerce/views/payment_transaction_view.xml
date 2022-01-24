@@ -1,0 +1,33 @@
+<odoo>
+  <data>
+
+    <record id="payment_transaction_form_paystack" model="ir.ui.view">
+        <field name="name">payment.transaction.inherit</field>
+        <field name="model">payment.transaction</field>
+        <field name="inherit_id" ref="payment.transaction_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date']" position='after'>
+                <field name="provider" invisible="1"/>
+                <h2 attrs="{'invisible': [('provider', '!=', 'paystack')]}">Authorization Details</h2>
+                <field name="paystack_verification_status" attrs="{'invisible': [('provider', '!=', 'paystack')]}"/>
+                <field name="paystack_gateway_response" attrs="{'invisible': [('provider', '!=', 'paystack')]}"/>
+
+                <field name="paystack_ip_address" attrs="{'invisible': [('provider', '!=', 'paystack')]}"/>
+                <field name="paystack_authorization_code" attrs="{'invisible': [('provider', '!=', 'paystack')]}"/>
+                <field name="paystack_channel" attrs="{'invisible': [('provider', '!=', 'paystack')]}"/>
+                <field name="paystack_bin" attrs="{'invisible': [('provider', '!=', 'paystack')]}"/>
+                <field name="paystack_last4" attrs="{'invisible': [('provider', '!=', 'paystack')]}"/>
+                <field name="paystack_card_type" attrs="{'invisible': [('provider', '!=', 'paystack')]}"/>
+                <field name="paystack_bank" attrs="{'invisible': [('provider', '!=', 'paystack')]}"/>
+                <field name="paystack_country_code" attrs="{'invisible': [('provider', '!=', 'paystack')]}"/>
+                <field name="paystack_signature" attrs="{'invisible': [('provider', '!=', 'paystack')]}"/>
+                <field name="paystack_account_name" attrs="{'invisible': [('provider', '!=', 'paystack')]}"/>
+                <field name="paystack_paid_at" attrs="{'invisible': [('provider', '!=', 'paystack')]}"/>
+
+            </xpath>
+
+        </field>
+    </record>
+
+  </data>
+</odoo>

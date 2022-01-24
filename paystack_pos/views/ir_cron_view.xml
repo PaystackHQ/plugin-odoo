@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record id="ir_cron_paystack_terminal_update" model="ir.cron">
+			<field name="name">Update Paystack Terminal details for every hour</field>
+			<field name="model_id" ref="paystack_pos.model_pos_payment_method"/>
+			<field name="type">ir.actions.server</field>
+			<field name="state">code</field>
+			<field name="code">model.cron_get_paystack_terminal_ids()</field>
+			<field name="interval_number">1</field>
+			<field name="interval_type">hours</field>
+			<field name="numbercall">-1</field>
+		</record>
+	</data>
+</odoo>
